@@ -3,11 +3,10 @@
 namespace Database\Factories;
 
 use App\Models\Employer;
-use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Job>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Job>
  */
 class JobFactory extends Factory
 {
@@ -23,9 +22,9 @@ class JobFactory extends Factory
             'title' => fake()->jobTitle,
             'salary' => fake()->randomElement(['$50,000 USD', '$90,000 USD', '$150,000 USD']),
             'location' => 'Remote',
-            'schedule' => 'Fulle Time',
+            'schedule' => 'Full Time',
             'url' => fake()->url,
-            'featured' => false
+            'featured' => false,
         ];
     }
 }
