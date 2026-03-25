@@ -21,10 +21,10 @@
         </div>
 
         <div class="space-x-6 font-bold flex">
-            <a  href="#" class="nav-link">Jobs</a>
+            <a  href="/" class="nav-link">Jobs</a>
             <a href="#" class="nav-link">Careers</a>
-            <a href="#" class="nav-link">Salaries</a>
-            <a href="#" class="nav-link">Compagnies</a>
+            <a href="/salaries" class="nav-link">Salaries</a>
+            <a href="/companies" class="nav-link">Companies</a>
         </div>
 
         @auth

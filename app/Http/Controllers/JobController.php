@@ -50,4 +50,11 @@ class JobController extends Controller
 
         return redirect('/');
     }
+
+    public function results(Job $job)
+    {
+        $jobs = collect([$job]);
+
+        return view('jobs.results', compact('jobs'));
+    }
 }
