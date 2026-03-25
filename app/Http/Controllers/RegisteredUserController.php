@@ -11,17 +11,11 @@ use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('auth.register');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $userAttributes = $request->validate([
@@ -37,11 +31,13 @@ class RegisteredUserController extends Controller
 
         $user = User::create($userAttributes);
 
-        $logoPath = $request->logo->store('logos');
+        $file = $request->file('logo');
+        $filename = $file->hashName();
+        $file->move(public_path('logos'), $filename);
 
         $user->employer()->create([
             'name' => $employerAttributes['employer'],
-            'logo' => $logoPath,
+            'logo' => 'logos/' . $filename,
         ]);
 
         Auth::login($user);

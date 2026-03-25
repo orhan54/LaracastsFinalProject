@@ -16,3 +16,18 @@
 
     --font-size-2xs: .625rem;
 }
+
+
+.nav-link {
+    @apply text-xl transition-colors duration-300 hover:text-blue-800;
+}
+
+.nav-links a,
+.nav-links button {
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links button:hover {
+    color: #1e40af;
+}

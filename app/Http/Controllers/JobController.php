@@ -11,9 +11,6 @@ use Illuminate\Validation\Rule;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $jobs = Job::latest()->with(['employer', 'tags'])->get()->groupBy('featured');
@@ -25,17 +22,11 @@ class JobController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('jobs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $attributes = $request->validate([
@@ -53,7 +44,7 @@ class JobController extends Controller
 
         if ($attributes['tags'] ?? false) {
             foreach (explode(',', $attributes['tags']) as $tag) {
-                $job->tag($tag);
+                $job->tag(strtolower(trim($tag)));
             }
         }
 

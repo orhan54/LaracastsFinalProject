@@ -21,14 +21,14 @@
         </div>
 
         <div class="space-x-6 font-bold flex">
-            <a href="#">Jobs</a>
-            <a href="#">Careers</a>
-            <a href="#">Salaries</a>
-            <a href="#">Compagnies</a>
+            <a  href="#" class="nav-link">Jobs</a>
+            <a href="#" class="nav-link">Careers</a>
+            <a href="#" class="nav-link">Salaries</a>
+            <a href="#" class="nav-link">Compagnies</a>
         </div>
 
         @auth
-            <div class="space-x-6 font-bold flex">
+            <div class="space-x-6 font-bold flex nav-links">
                 <a href="/jobs/create">Post a Job</a>
 
                 <form method="POST" action="/logout">
@@ -41,7 +41,7 @@
         @endauth
 
         @guest
-            <div class="space-x-6 font-bold">
+            <div class="space-x-6 font-bold nav-links">
                 <a href="/register">Sign Up</a>
                 <a href="/login">Log In</a>
             </div>
